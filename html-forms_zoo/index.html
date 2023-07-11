@@ -20,21 +20,53 @@
         <fieldset>
           <legend>Enter your information</legend>
 
-          <!-- Email: label & input -->
+          <label for="input-email">enter your E-mail-Adress</label>
+          <input type="email" id="input-email" name="email" />
 
-          <!-- Date: label & input -->
+          <label for="input-date">When do you want to visit us?</label>
+          <input type="date" id="input-date" name="date" />
 
           <fieldset class="radio-options">
             <legend>Which one of these animals would you like to visit?</legend>
 
-            <!-- Radio Buttons: labels & inputs -->
+            <label for="sloths">Relaxed Sloths</label>
+            <input type="radio" id="sloths" name="attraction" value="sloths" />
+            <label for="kangaroos">Jumpy Kangaroos</label>
+            <input
+              type="radio"
+              id="kangaroos"
+              name="attraction"
+              value="kangaroos"
+            />
+            <label for="racoons">Thieving Racoons</label>
+            <input
+              type="radio"
+              id="racoons"
+              name="attraction"
+              value="racoons"
+            />
           </fieldset>
 
-          <!-- Textarea: label & input -->
+          <label for="input-concerns">Do you have any concerns?</label>
+          <input type="textarea" id="input-concerns" name="concerns" />
 
           <!-- Two Checkboxes: labels & inputs -->
 
+          <label for="input-dataProcessing"
+            ><input
+              type="checkbox"
+              id="input-dataProcessing"
+              name="ConsentForDataProcessing"
+            />I consent to the zoo processing my data</label
+          >
+          <label for="input-newsletter"
+            ><input type="checkbox" id="input-newsletter" name="newsletter" />I
+            want to get annoying mails that don't interest me</label
+          >
+
           <!-- Two Buttons: reset & submit -->
+          <button type="reset">Reset</button>
+          <button type="submit">Submit</button>
         </fieldset>
       </form>
     </section>
