@@ -13,6 +13,13 @@ startButton.addEventListener("click", () => {
   countdown.classList.add("countdown--visible");
 });
 
+startButton.addEventListener("mousedown", () => {
+  document.querySelector("body").classList.add("backgroundcolor");
+});
+startButton.addEventListener("mouseup", () => {
+  document.querySelector("body").classList.remove("backgroundcolor");
+});
+
 toast.addEventListener("click", () => {
   clearTimeout(timeoutId);
   hideToast();

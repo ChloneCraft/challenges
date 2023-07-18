@@ -28,7 +28,12 @@ body {
   color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  transition: background-color 0.3s ease-in, box-shadow 0.5s ease 0.2s;
 }
+
+/* body:has(button:active) {
+  background-color: aqua;
+} not supported in firefox */
 
 .start-button:disabled {
   background-color: lightgrey;
@@ -50,7 +55,7 @@ body {
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
-  transition: transform 0.5s;
+  transition: transform 1s cubic-bezier(0.18, 0.59, 0.33, 0.97);
 }
 
 .toast--hidden {
@@ -75,4 +80,8 @@ body {
   opacity: 0.8;
   width: 0%;
   transition: width linear 2000ms;
+}
+
+.backgroundcolor {
+  background-color: teal;
 }
