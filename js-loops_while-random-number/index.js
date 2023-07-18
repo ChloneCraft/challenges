@@ -10,7 +10,7 @@ let count = 0;
 while (number <= 0.9) {
   count++;
   console.log(number);
-  number = Math.random();
+  number = Math.random().toFixed(1);
 }
 
 // --^-- write/change code here --^--
