@@ -5,7 +5,7 @@ export function Status() {
   statusElement.textContent = "Give it a spin! 🎰";
 
   function setSpinning() {
-    statusElement.textContent = "Spinning... 🫣";
+    statusElement.textContent = "Spinning... ";
   }
 
   function setResult(points) {
