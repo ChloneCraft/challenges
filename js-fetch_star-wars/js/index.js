@@ -41,6 +41,23 @@ fetchDataAndRender();
 
 // --v-- your code below this line --v--
 
+const apiURL = "https://swapi.dev/api/people";
+
+try {
+  const response = await fetch(apiURL);
+  const data = await response.json();
+  createCards(data.results);
+} catch (error) {
+  console.error(error);
+}
+
+function createCards(cardArray) {
+  cardArray.forEach((element) => {
+    const newCard = Card(element);
+    renderElement(newCard);
+  });
+}
+
 function fetchDataAndRender() {
-  fetch(); // ?
+  fetch(); // ??
 }
