@@ -31,7 +31,7 @@ const firstAnimalStartingWithLetterP = animalStrings.find((animal) =>
   animal.startsWith("p")
 );
 
-const indexOfGiraffe = animalStrings.findIndex((animal) => animal == "giraffe");
+const indexOfGiraffe = animalStrings.findIndex((animal) => animal.toLowerCase() === "giraffe");
 
 // Note:
 // - Sorting strings is slightly more complicated than sorting numbers.
