@@ -6,15 +6,13 @@ import { countdown } from "./core/countdown.js";
 import { liftoff } from "./core/liftoff.js";
 import { deployPayload } from "./core/deploy.js";
 
-export function launchFunction() {
+export default function launch() {
   loadPayload(NFSAT);
   loadPayload(FISHSAT);
   fuel();
+  for (let i = 0; i < 5; i++) {
   countdown();
-  countdown();
-  countdown();
-  countdown();
-  countdown();
+  }
   liftoff();
   deployPayload();
 }
