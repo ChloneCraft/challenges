@@ -1,12 +1,12 @@
 import { useState } from "react";
 
+const increment = 3;
+
 export default function Counter() {
   const [count, setCount] = useState(0);
 
   function handleIncrement() {
-    setCount(count + 1);
-    setCount(count + 1);
-    setCount(count + 1);
+    setCount(count + increment);
   }
 
   return (
