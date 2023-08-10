@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Light from "../Light";
+import lightsState from "../../pages/atoms";
 
 const StyledLights = styled.ul`
   list-style-type: none;

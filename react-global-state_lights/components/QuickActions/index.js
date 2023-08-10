@@ -1,5 +1,13 @@
 import styled from "styled-components";
 import Button from "../Button";
+import { lightsState } from "../../pages/atoms";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 const StyledQuickActions = styled.div`
   display: flex;
@@ -8,12 +16,29 @@ const StyledQuickActions = styled.div`
 `;
 
 export default function QuickActions() {
+  const [lights, setLights] = useRecoilState(lightsState);
+
+  function handleOnOffLights(toTurnOn) {
+    console.log("turn all on", toTurnOn);
+    toTurnOn
+      ? setLights(
+          lights.map((light) => {
+            return { ...light, isOn: true };
+          })
+        )
+      : setLights(
+          lights.map((light) => {
+            return { ...light, isOn: false };
+          })
+        );
+    console.log(lights);
+  }
   return (
     <StyledQuickActions>
       <Button
         type="button"
         onClick={() => {
-          console.log("Turn all lights off");
+          handleOnOffLights(false);
         }}
       >
         Turn all lights off
@@ -21,7 +46,7 @@ export default function QuickActions() {
       <Button
         type="button"
         onClick={() => {
-          console.log("Turn all lights on");
+          handleOnOffLights(true);
         }}
       >
         Turn all lights on
