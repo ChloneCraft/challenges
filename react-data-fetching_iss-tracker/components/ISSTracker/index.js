@@ -3,7 +3,10 @@ import Controls from "../Controls/index";
 import Map from "../Map/index";
 import useSWR from "swr";
 
+// const URL = "https://api.wheretheiss.at/v1/satellites/25544";
 const URL = "https://api.wheretheiss.at/v1/satellites/25544";
+
+console.log(args);
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function ISSTracker() {
@@ -39,12 +42,13 @@ export default function ISSTracker() {
 
   return (
     <main>
-      <Map longitude={data.longitude} latitude={data.latitude} />
+      <div></div>
+      {/* <Map longitude={data.longitude} latitude={data.latitude} />
       <Controls
         longitude={data.longitude}
         latitude={data.latitude}
         onRefresh={mutate}
-      />
+      /> */}
     </main>
   );
 }
