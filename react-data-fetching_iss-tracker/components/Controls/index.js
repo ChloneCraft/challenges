@@ -4,7 +4,7 @@ import {
   ControlsDisplay,
 } from "./Controls.styled";
 
-export default function Controls({ longitude, latitude, onRefresh }) {
+export default function Controls({ longitude = 0, latitude = 0, onRefresh }) {
   return (
     <ControlsContainer>
       <ControlsDisplay>Lat: {longitude.toFixed(5)}</ControlsDisplay>
