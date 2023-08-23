@@ -8,4 +8,13 @@ export default async function handler(request, response) {
     const products = await Product.find();
     return response.status(200).json(products);
   }
+  if (request.method === "POST") {
+    try {
+      await Product.create(request.body);
+      return response.status(201).json({ status: "Product created." });
+    } catch (err) {
+      console.log(err);
+      return response.status(400).json({ error: err.message });
+    }
+  }
 }
