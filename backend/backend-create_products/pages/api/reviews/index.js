@@ -15,7 +15,9 @@ export default async function handler(request, response) {
       const review = new Review(reviewData);
       const newReview = await review.save();
       const reviewID = JSON.stringify(newReview._id);
+      console.log(typeof reviewID);
       //add reviewID to array of product
+
       return response.status(201).json({ status: "Product created." });
     } catch (err) {
       console.log(err);
