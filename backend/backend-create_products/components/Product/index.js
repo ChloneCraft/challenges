@@ -4,8 +4,11 @@ import { StyledButton } from "../Button/Button.styled";
 import { ProductCard } from "./Product.styled";
 import Comments from "../Comments";
 import CommentForm from "../CommentForm/CommentForm";
+import { useState } from "react";
+import ProductForm from "../ProductForm";
 
-export default function Product() {
+export default function Product({ onSubmit, onDelete }) {
+  const [isEditMode, setIsEditMode] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
@@ -22,6 +25,18 @@ export default function Product() {
       <p>
         Price: {data.price} {data.currency}
       </p>
+      <button
+        type="button"
+        onClick={() => {
+          setIsEditMode(!isEditMode);
+        }}
+      >
+        Edit
+      </button>
+      <button type="button" onClick={() => onDelete(id)}>
+        Delete
+      </button>
+      {isEditMode && <ProductForm onSubmit={onSubmit} />}
       {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
       <CommentForm />
       <StyledButton type="button" onClick={() => router.push("/")}>

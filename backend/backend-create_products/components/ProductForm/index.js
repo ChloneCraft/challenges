@@ -1,31 +1,31 @@
 import { StyledForm, StyledHeading, StyledLabel } from "./ProductForm.styled";
 import { StyledButton } from "../Button/Button.styled";
-import useSWR from "swr";
 
-export default function ProductForm() {
-  const products = useSWR("/api/products");
-  async function handleSubmit(event) {
-    event.preventDefault();
+export default function ProductForm({ onSubmit }) {
+  // const products = useSWR("/api/products");
+  function handleSubmit(event) {
+    onSubmit(event);
+    //   event.preventDefault();
 
-    const formData = new FormData(event.target);
-    const productData = Object.fromEntries(formData);
-    const response = await fetch("/api/products", {
-      method: "POST",
-      body: JSON.stringify(productData),
-      headers: { "Content-Type": "application/json" },
-    });
-    if (response.ok) {
-      await response.json();
-      products.mutate();
-      event.target.reset();
-    } else {
-      console.log(response.status);
-    }
+    //   const formData = new FormData(event.target);
+    //   const productData = Object.fromEntries(formData);
+    //   const response = await fetch("/api/products", {
+    //     method: "POST",
+    //     body: JSON.stringify(productData),
+    //     headers: { "Content-Type": "application/json" },
+    //   });
+    //   if (response.ok) {
+    //     await response.json();
+    //     products.mutate();
+    //     event.target.reset();
+    //   } else {
+    //     console.log(response.status);
+    //   }
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>Add a new Fish</StyledHeading>
+      <StyledHeading>heading</StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
         <input type="text" id="name" name="name" />
