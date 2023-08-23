@@ -2,7 +2,7 @@ import { StyledForm, StyledHeading, StyledLabel } from "./ProductForm.styled";
 import { StyledButton } from "../Button/Button.styled";
 import useSWR from "swr";
 
-export default async function ProductForm() {
+export default function ProductForm() {
   const products = useSWR("/api/products");
   async function handleSubmit(event) {
     event.preventDefault();
