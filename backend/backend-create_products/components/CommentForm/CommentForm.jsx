@@ -11,13 +11,14 @@ export default function CommentForm() {
   const router = useRouter();
   const { id } = router.query;
   const products = useSWR(`/api/products`);
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const commentData = Object.fromEntries(formData);
 
-    const response = await fetch(`/api/reviews`, {
+    const response = await fetch(`/api/reviews/${id}`, {
       method: "POST",
       body: JSON.stringify(commentData),
       headers: { "Content-Type": "application/json" },
