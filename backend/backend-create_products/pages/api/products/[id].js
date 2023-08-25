@@ -1,5 +1,6 @@
 import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
+import Review from "../../../db/models/Review";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -22,7 +23,8 @@ export default async function handler(request, response) {
     response.status(200).json({ status: "Product successfully updated." });
   }
   if (request.method === "DELETE") {
-    await Product.findByIdAndDelete(id);
+    const deletedProduct = await Product.findByIdAndDelete(id);
+    await Review.deleteMany({ _id: { $id: deletedProduct.reviews } });
     response.status(200).json({ status: "Product successfully deleted." });
   }
 }

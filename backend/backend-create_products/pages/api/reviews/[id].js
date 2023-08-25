@@ -30,19 +30,15 @@ export default async function handler(request, response) {
         id,
         { $push: { reviews: newReview._id } },
         { new: true }
-      )
-        .then((updatedDocument) => {
-          console.log("Document updated:", updatedDocument);
-        })
-        .catch((updateErr) => {
-          console.error("Error updating document:", updateErr);
-        });
-      await Product.save();
+      );
+      // .catch((updateErr) => {
+      //   console.error("Error updating document:", updateErr);
+      // });
       // push(`/${id}`);
 
       return response.status(201).json({ status: "Review created." });
     } catch (err) {
-      console.log(err);
+      console.log("error in api [id] handler}", err);
       return response.status(400).json({ error: err.message });
     }
   }

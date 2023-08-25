@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 export default function CommentForm() {
   const router = useRouter();
   const { id } = router.query;
-  const products = useSWR(`/api/products`);
+  const products = useSWR(`/api/products/${id}`);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,11 +25,12 @@ export default function CommentForm() {
     });
 
     if (response.ok) {
+      console.log("test");
       await response.json();
       products.mutate();
       event.target.reset();
     } else {
-      console.log(response.status);
+      console.log("response is not ok", response.status);
     }
   }
 
